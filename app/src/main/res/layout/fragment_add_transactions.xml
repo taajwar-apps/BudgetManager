@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="0dp"
+    android:background="@drawable/common_google_signin_btn_icon_light_normal_background"
+    android:orientation="vertical"
+    android:padding="0dp">
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Expense Transaction" />-->
+
+    <!--<EditText-->
+        <!--android:id="@+id/editTextCategoryName"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView3"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Description" />-->
+
+
+
+    <!--<EditText-->
+        <!--android:id="@+id/editTextCategoryDescription"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <!--<RadioGroup-->
+        <!--android:id="@+id/radioCategoryGroup"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:visibility="invisible">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textView"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Select Category Type" />-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/radioBtnExpense"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Expense" />-->
+
+        <!--<RadioButton-->
+            <!--android:id="@+id/radioBtnIncome"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:text="Income" />-->
+    <!--</RadioGroup>-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Category Group" />-->
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content">-->
+
+        <!--<Spinner-->
+            <!--android:id="@+id/spinnerParentCategory"-->
+            <!--style="@android:style/Widget.Spinner.DropDown"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:spinnerMode="dialog">-->
+
+        <!--</Spinner>-->
+        <!--&lt;!&ndash;<EditText&ndash;&gt;-->
+        <!--&lt;!&ndash;android:id="@+id/editTextParentCategory"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;android:layout_height="wrap_content" />&ndash;&gt;-->
+
+        <!--<Button-->
+            <!--android:id="@+id/btnAddParentCategory"-->
+            <!--android:layout_width="40dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_marginTop="2dp"-->
+            <!--android:layout_marginRight="4dp"-->
+            <!--android:background="@android:color/holo_green_light"-->
+            <!--android:text="+"-->
+
+            <!--android:textSize="25dp"-->
+            <!--android:textStyle="bold" />-->
+    <!--</RelativeLayout>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btnSaveCategory"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Save"/>-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btnCancel"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Cancel" />-->
+
+    <!--<Button-->
+        <!--android:id="@+id/btnUpdateCategory"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Update" />-->
+
+
+    <!--<Button-->
+        <!--android:id="@+id/btnDeleteCategory"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Delete" />-->
+
+    <FrameLayout
+        android:id="@+id/frame_layout_add_transaction"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigation_view_transactions"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_gravity="bottom"
+            android:background="@color/design_default_color_primary_dark"
+            app:itemTextColor="@color/colorWhite"
+            android:paddingBottom="15dp"
+            app:menu="@menu/transaction_type_navigation" />
+
+    </FrameLayout>
+
+
+
+</LinearLayout>

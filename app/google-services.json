@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "917125406433",
+    "firebase_url": "https://budgetmanager-61b65.firebaseio.com",
+    "project_id": "budgetmanager-61b65",
+    "storage_bucket": "budgetmanager-61b65.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:917125406433:android:52a8cc4d2a2a3af7",
+        "android_client_info": {
+          "package_name": "budgetmanager.tgs.com.budgetmanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "917125406433-nsfsq857eece0sac4ongquek7bovh45s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "budgetmanager.tgs.com.budgetmanager",
+            "certificate_hash": "87e9edbcdf789d885f2edfe7256189ff09ab379f"
+          }
+        },
+        {
+          "client_id": "917125406433-sjcr0s3ha5ptc6brmp6s6ckaol2dqul7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_x6FCYVpQZGEtSlNLh13HxZZy95oTxNk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "917125406433-sjcr0s3ha5ptc6brmp6s6ckaol2dqul7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

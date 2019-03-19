@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#2f7870</color>-->
+    <color name="colorPrimary">#0062ff</color>
+    <color name="colorCategoryParentItem">#3a9d93</color>
+    <color name="colorCategoryItem">#963a9d93</color>
+    <color name="colorPrimaryDark">#0051ff</color>
+    <color name="colorAccent">#d81b60</color>
+    <color name="colorTopBar">#146cfa</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorIcons">#ababab</color>
+    <color name="color_transparent">#00ffffff</color>
+</resources>
