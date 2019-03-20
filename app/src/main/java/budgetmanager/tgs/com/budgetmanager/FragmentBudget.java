@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
+/////////
  */
 public class FragmentBudget extends Fragment {
 
