@@ -17,7 +17,7 @@ import java.util.List;
 import budgetmanager.tgs.com.budgetmanager.Model.Account;
 
 public class Common {
-
+//=====================================================================================
     public static final FirebaseDatabase _firebaseDB  = FirebaseDatabase.getInstance();
     public static final FirebaseAuth _firebaseAuth = FirebaseAuth.getInstance();
     public static final List<Item> _listCategories = new ArrayList<Item>();
