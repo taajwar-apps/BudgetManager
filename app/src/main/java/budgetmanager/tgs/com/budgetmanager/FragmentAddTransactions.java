@@ -1,29 +1,17 @@
 package budgetmanager.tgs.com.budgetmanager;
 
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import com.firebase.ui.database.FirebaseListAdapter;
-import com.firebase.ui.database.FirebaseListOptions;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +36,7 @@ public class FragmentAddTransactions extends Fragment {
     BaseAdapter _listAdapter;
 
     //    List<Category> _listExpenseCategories;
-    List<Item> _listAccounts;
+    List<ICatItem> _listAccounts;
     Account _selectedAccount;
 
     BottomNavigationView _navigationView;
@@ -67,7 +55,7 @@ public class FragmentAddTransactions extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_add_transactions, container, false);
         _listViewAccounts = view.findViewById(R.id.list_view_accounts);
-        _listAccounts = new ArrayList<Item>();
+        _listAccounts = new ArrayList<ICatItem>();
         _btnAddAccount = view.findViewById(R.id.btnAddAccount);
 
         _fragmentAddTransactionExpense = new FragmentAddTransactionExpense();
@@ -93,12 +81,15 @@ public class FragmentAddTransactions extends Fragment {
             switch (menuItem.getItemId()){
                 case R.id.navigation_expense:
                     setFragment(_fragmentAddTransactionExpense);
+                    ((View)getActivity().findViewById(R.id.navigation_view_transactions)).setBackgroundResource(R.color.colorRed);
                     return true;
                 case R.id.navigation_income:
                     setFragment(_fragmentAddTransactionIncome);
+                    ((View)getActivity().findViewById(R.id.navigation_view_transactions)).setBackgroundResource(R.color.colorGreen);
                     return true;
                 case R.id.navigation_transfer:
                     setFragment(_fragmentAddTransactionTransfer);
+                    ((View)getActivity().findViewById(R.id.navigation_view_transactions)).setBackgroundResource(R.color.colorPrimary);
                     return true;
             }
             return false;

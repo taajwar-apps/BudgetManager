@@ -4,8 +4,6 @@ package budgetmanager.tgs.com.budgetmanager;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +19,6 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.firebase.ui.database.FirebaseListOptions;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 
@@ -29,8 +26,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import budgetmanager.tgs.com.budgetmanager.Model.Account;
-import budgetmanager.tgs.com.budgetmanager.Model.Category;
-import budgetmanager.tgs.com.budgetmanager.Model.CategoryGroup;
 
 
 /**
@@ -50,7 +45,7 @@ public class FragmentAccounts extends Fragment {
     BaseAdapter _listAdapter;
 
     //    List<Category> _listExpenseCategories;
-    List<Item> _listAccounts;
+    List<ICatItem> _listAccounts;
     Account _selectedAccount;
 
     public FragmentAccounts() {
@@ -67,7 +62,7 @@ public class FragmentAccounts extends Fragment {
 //        _listViewExpenseCategory = (ListView) view.findViewById(R.id.list_view_expense_categories);
         _listViewAccounts = view.findViewById(R.id.list_view_accounts);
 //        _listExpenseCategories = new ArrayList<Category>();
-        _listAccounts = new ArrayList<Item>();
+        _listAccounts = new ArrayList<ICatItem>();
         _btnAddAccount = view.findViewById(R.id.btnAddAccount);
         _btnAddAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +74,7 @@ public class FragmentAccounts extends Fragment {
 //        _listViewAccounts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-////                Toast.makeText(getContext(), "Touched Item : "+position, Toast.LENGTH_SHORT).show();
+////                Toast.makeText(getContext(), "Touched ICatItem : "+position, Toast.LENGTH_SHORT).show();
 //                showUpdateCategoryPopupWindow(position);
 //            }
 //        });
@@ -184,6 +179,10 @@ public class FragmentAccounts extends Fragment {
                         popupWindow.dismiss();
                         refreshDataAdapter();
                     }
+                    @Override
+                    public void result(float result) {
+
+                    }
                 });
             }
         });
@@ -219,6 +218,10 @@ public class FragmentAccounts extends Fragment {
                 popupWindow.dismiss();
                 refreshDataAdapter();
             }
+            @Override
+            public void result(float result) {
+
+            }
         });
         popupWindow.dismiss();
     }
@@ -250,6 +253,10 @@ public class FragmentAccounts extends Fragment {
                 Toast.makeText(getContext(),msg,Toast.LENGTH_SHORT).show();
                 popupWindow.dismiss();
                 refreshDataAdapter();
+            }
+            @Override
+            public void result(float result) {
+
             }
         });
 //        popupWindow.dismiss();
@@ -296,8 +303,8 @@ public class FragmentAccounts extends Fragment {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                _listAccounts.clear();
-//                List<Item> listAccounts = new ArrayList<>();
-////                List<Item> listIncomeCategories = new ArrayList<>();
+//                List<ICatItem> listAccounts = new ArrayList<>();
+////                List<ICatItem> listIncomeCategories = new ArrayList<>();
 ////                _listCategories.add(new Header("Expense Categories", Header.HEADER_TYPE.EXPENSE));
 //                _listAccounts.add(new Header("Accounts"));
 //                for(DataSnapshot accountSnapshot : dataSnapshot.getChildren()){
@@ -360,11 +367,11 @@ public class FragmentAccounts extends Fragment {
 //        }
 //        _listAllCategories.clear();
 //        _listAllCategories.add(new Header("Expense Categories"));
-//        for (Item parentCategory:Common._listCategoriesGroup){
-//            List<Item> categories = new ArrayList<Item>();
-//            if(((CategoryGroup)parentCategory).get_categoryType().equals(Item.ITEM_TYPE.EXPENSE)) {
-//                for (Item category : Common._listCategories) {
-//                    if (((Category) category).get_categoryType().equals(Item.ITEM_TYPE.EXPENSE))
+//        for (ICatItem parentCategory:Common._listCategoriesGroup){
+//            List<ICatItem> categories = new ArrayList<ICatItem>();
+//            if(((CategoryGroup)parentCategory).get_categoryType().equals(ICatItem.ITEM_TYPE.EXPENSE)) {
+//                for (ICatItem category : Common._listCategories) {
+//                    if (((Category) category).get_categoryType().equals(ICatItem.ITEM_TYPE.EXPENSE))
 //                        if (((Category) category).get_parentCategory().equals(((CategoryGroup) parentCategory).get_catID()))
 //                            categories.add(category);
 //                }
@@ -375,11 +382,11 @@ public class FragmentAccounts extends Fragment {
 //            }
 //        }
 //        _listAllCategories.add(new Header("Income Categories"));
-//        for (Item parentCategory:Common._listCategoriesGroup){
-//            List<Item> categories = new ArrayList<Item>();
-//            if(((CategoryGroup)parentCategory).get_categoryType().equals(Item.ITEM_TYPE.INCOME)) {
-//                for (Item category : Common._listCategories) {
-//                    if (((Category) category).get_categoryType().equals(Item.ITEM_TYPE.INCOME))
+//        for (ICatItem parentCategory:Common._listCategoriesGroup){
+//            List<ICatItem> categories = new ArrayList<ICatItem>();
+//            if(((CategoryGroup)parentCategory).get_categoryType().equals(ICatItem.ITEM_TYPE.INCOME)) {
+//                for (ICatItem category : Common._listCategories) {
+//                    if (((Category) category).get_categoryType().equals(ICatItem.ITEM_TYPE.INCOME))
 //                        if (((Category) category).get_parentCategory().equals(((CategoryGroup) parentCategory).get_catID()))
 //                            categories.add(category);
 //                }

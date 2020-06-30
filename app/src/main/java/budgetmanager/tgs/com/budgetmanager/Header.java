@@ -4,13 +4,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
-public class Header implements Item{
+public class Header implements ICatItem {
 
-    private final String         name;
+    private final String _title;
 //    HEADER_TYPE _headerType;
 
-    public Header(String name) {
-        this.name = name;
+    public Header(String title) {
+        this._title = title;
 //        this._headerType = headerType;
     }
 
@@ -40,9 +40,9 @@ public class Header implements Item{
 //        }
 
         TextView text = view.findViewById(R.id.catHeaderTitle);
-        text.setText(name);
+        text.setText(_title);
 
         return view;
     }
-    public String getName(){return name;}
+    public String getName(){return _title;}
 }

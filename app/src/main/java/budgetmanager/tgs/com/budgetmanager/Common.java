@@ -1,12 +1,7 @@
 package budgetmanager.tgs.com.budgetmanager;
 
 import android.support.design.widget.BottomNavigationView;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
@@ -20,8 +15,8 @@ public class Common {
 //=====================================================================================
     public static final FirebaseDatabase _firebaseDB  = FirebaseDatabase.getInstance();
     public static final FirebaseAuth _firebaseAuth = FirebaseAuth.getInstance();
-    public static final List<Item> _listCategories = new ArrayList<Item>();
-    public static final List<Item> _listCategoriesGroup = new ArrayList<Item>();
+    public static final List<ICatItem> _listCategories = new ArrayList<ICatItem>();
+    public static final List<ICatItem> _listCategoriesGroup = new ArrayList<ICatItem>();
     public static final List<Account> _listAccounts = new ArrayList<Account>();
     public static BottomNavigationView navigation;
 

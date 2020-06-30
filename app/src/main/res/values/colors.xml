@@ -9,6 +9,16 @@
     <color name="colorTopBar">#146cfa</color>
     <color name="colorWhite">#ffffff</color>
     <color name="colorBlack">#000000</color>
+    <color name="colorGreyDark">#2d2c2c</color>
+    <color name="colorGreyLight">#616161</color>
     <color name="colorIcons">#ababab</color>
+    <color name="colorRed">#ff0000</color>
+    <color name="colorGreen">#009c05</color>
+    <color name="colorBG">#f4f3f3</color>
+    <color name="colorCalculatorButtons">#4f5151</color>
+    <color name="colorCalculatorActionButtons">#858686</color>
+    <color name="colorCalculatorBG">#004141</color>
+    <color name="colorPopupWindowBG">#72000000</color>
     <color name="color_transparent">#00ffffff</color>
+    <color name="colorLightGrey">#50d7d7d7</color>
 </resources>

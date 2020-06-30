@@ -6,16 +6,12 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.DataSetObserver;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.telephony.SmsManager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -27,20 +23,12 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -85,9 +73,9 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
     BaseAdapter _listAdapter;
     Category selectedCategory;
     CategoryGroup _selectedParentCategory;
-//    List<Item> _listCategories = new ArrayList<Item>();
-//    List<Item> _listCategoriesGroup = new ArrayList<Item>();;
-    Item.ITEM_TYPE _selectedType = Item.ITEM_TYPE.EXPENSE;
+//    List<ICatItem> _listCategories = new ArrayList<ICatItem>();
+//    List<ICatItem> _listCategoriesGroup = new ArrayList<ICatItem>();;
+    ICatItem.ITEM_TYPE _selectedType = ICatItem.ITEM_TYPE.EXPENSE;
 
 //    boolean _categoriesLoaded = false;
 //    boolean _categoriesGroupLoaded = false;
@@ -112,7 +100,7 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
 //                sendSMS();
             }
         });
-        _listAllCategories = new ArrayList<Item>();
+        _listAllCategories = new ArrayList<ICatItem>();
         showList();
 //        showLoader();
 //        Common.setCustomActionBar((AppCompatActivity)getActivity(), container, inflater, "Categories",0);
@@ -198,16 +186,16 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
         RadioGroup radioCategoryGroup = popupView.findViewById(R.id.radioCategoryGroup);
         radioCategoryGroup.setVisibility(View.VISIBLE);
         radioCategoryGroup.check(R.id.radioBtnExpense);
-        _selectedType = Item.ITEM_TYPE.EXPENSE;
+        _selectedType = ICatItem.ITEM_TYPE.EXPENSE;
         radioCategoryGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if(checkedId == R.id.radioBtnExpense){
-                    _selectedType = Item.ITEM_TYPE.EXPENSE;
+                    _selectedType = ICatItem.ITEM_TYPE.EXPENSE;
                     populateSpinner(popupView, _selectedType,"");
                 }
                 else if(checkedId == R.id.radioBtnIncome) {
-                    _selectedType = Item.ITEM_TYPE.INCOME;
+                    _selectedType = ICatItem.ITEM_TYPE.INCOME;
                     populateSpinner(popupView, _selectedType,"");
                 }
             }
@@ -225,7 +213,7 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
         EditText editTextCatDescription = popupView.findViewById(R.id.editTextCategoryDescription);
         editTextCatName.setText(selectedCategory.get_categoryName());
         editTextCatDescription.setText(selectedCategory.get_description());
-        final Item.ITEM_TYPE categoryType = selectedCategory.get_categoryType();
+        final ICatItem.ITEM_TYPE categoryType = selectedCategory.get_categoryType();
         RadioGroup radioCategoryGroup = popupView.findViewById(R.id.radioCategoryGroup);
         radioCategoryGroup.setVisibility(View.GONE);
         _btnSaveCategory = popupView.findViewById(R.id.btnSaveCategory);
@@ -264,6 +252,11 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
                         _listAdapter.notifyDataSetChanged();
                         
                     }
+
+                    @Override
+                    public void result(float result) {
+
+                    }
                 });
             }
         });
@@ -280,10 +273,10 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
         int selectedRadioBtnID = radioCategoryGroup.getCheckedRadioButtonId();
         switch (selectedRadioBtnID){
             case R.id.radioBtnExpense:
-                _selectedType = Item.ITEM_TYPE.EXPENSE;
+                _selectedType = ICatItem.ITEM_TYPE.EXPENSE;
                 break;
             case R.id.radioBtnIncome:
-                _selectedType = Item.ITEM_TYPE.INCOME;
+                _selectedType = ICatItem.ITEM_TYPE.INCOME;
                 break;
                 default:
                     ShowToast("Please Select Category Type");
@@ -296,11 +289,15 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
                 popupWindow.dismiss();
                 populateListView();
             }
+            @Override
+            public void result(float result) {
+
+            }
         });
         popupWindow.dismiss();
     }
 
-    private void updateCategory(View popupView, final PopupWindow popupWindow, Item.ITEM_TYPE categoryType){
+    private void updateCategory(View popupView, final PopupWindow popupWindow, ICatItem.ITEM_TYPE categoryType){
         String categoryName = ((EditText)popupView.findViewById(R.id.editTextCategoryName)).getText().toString();
         int selectedItemPosition = ((Spinner)popupView.findViewById(R.id.spinnerParentCategory)).getSelectedItemPosition();
         final CategoryGroup catGroup = _categoryGroupsInSpinner.get(selectedItemPosition);
@@ -315,6 +312,10 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
                 Toast.makeText(getContext(),msg,Toast.LENGTH_SHORT).show();
                 popupWindow.dismiss();
                 populateListView();
+            }
+            @Override
+            public void result(float result) {
+
             }
         });
     }
@@ -389,6 +390,10 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
                         Toast.makeText(getContext(),msg,Toast.LENGTH_SHORT).show();
                         popupWindow.dismiss();
                     }
+                    @Override
+                    public void result(float result) {
+
+                    }
                 });
             }
         });
@@ -406,6 +411,10 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
                 _popupWindowAddCategory.getContentView().setVisibility(View.VISIBLE);
                 populateSpinner(_popupWindowAddCategory.getContentView(), _selectedType, categoryGroup.get_categoryName());
             }
+            @Override
+            public void result(float result) {
+
+            }
         });
         popupWindow.dismiss();
     }
@@ -418,6 +427,10 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
             public void apply(String msg) {
                 Toast.makeText(getContext(),msg,Toast.LENGTH_SHORT).show();
                 popupWindow.dismiss();
+            }
+            @Override
+            public void result(float result) {
+
             }
         });
     }
@@ -434,7 +447,7 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
     }
 
 
-    List<Item> _listAllCategories;// = new ArrayList<Item>();
+    List<ICatItem> _listAllCategories;// = new ArrayList<ICatItem>();
     void populateListView(){
         boolean updateAdapter = false;
         if(_listAllCategories.size() > 0)
@@ -447,7 +460,7 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
                 }
 
                 @Override
-                public Item getItem(int position) {
+                public ICatItem getItem(int position) {
                     return _listAllCategories.get(position);
                 }
 
@@ -466,12 +479,12 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
                         @Override
                         public void onClick(View v) {
 //                                showUpdateCategoryPopupWindow(position);
-                            Item item = getItem(position);
-                            if (item.getClass().equals(Category.class))
-                                showUpdateCategoryPopupWindow((Category) item);
-                            else if (item.getClass().equals(CategoryGroup.class))
-                                showUpdateCategoryGroupPopupWindow((CategoryGroup) item);
-//                                    Toast.makeText(getContext(),""+((Category)item).get_categoryName(), Toast.LENGTH_LONG).show();
+                            ICatItem ICatItem = getItem(position);
+                            if (ICatItem.getClass().equals(Category.class))
+                                showUpdateCategoryPopupWindow((Category) ICatItem);
+                            else if (ICatItem.getClass().equals(CategoryGroup.class))
+                                showUpdateCategoryGroupPopupWindow((CategoryGroup) ICatItem);
+//                                    Toast.makeText(getContext(),""+((Category)ICatItem).get_categoryName(), Toast.LENGTH_LONG).show();
                         }
                     });
                     return view;
@@ -480,11 +493,11 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
         }
         _listAllCategories.clear();
         _listAllCategories.add(new Header("Expense Categories"));
-        for (Item parentCategory:Common._listCategoriesGroup){
-            List<Item> categories = new ArrayList<Item>();
-            if(((CategoryGroup)parentCategory).get_categoryType().equals(Item.ITEM_TYPE.EXPENSE)) {
-                for (Item category : Common._listCategories) {
-                    if (((Category) category).get_categoryType().equals(Item.ITEM_TYPE.EXPENSE))
+        for (ICatItem parentCategory:Common._listCategoriesGroup){
+            List<ICatItem> categories = new ArrayList<ICatItem>();
+            if(((CategoryGroup)parentCategory).get_categoryType().equals(ICatItem.ITEM_TYPE.EXPENSE)) {
+                for (ICatItem category : Common._listCategories) {
+                    if (((Category) category).get_categoryType().equals(ICatItem.ITEM_TYPE.EXPENSE))
                         if (((Category) category).get_parentCategory().equals(((CategoryGroup) parentCategory).get_catID()))
                             categories.add(category);
                 }
@@ -495,11 +508,11 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
             }
         }
         _listAllCategories.add(new Header("Income Categories"));
-        for (Item parentCategory:Common._listCategoriesGroup){
-            List<Item> categories = new ArrayList<Item>();
-            if(((CategoryGroup)parentCategory).get_categoryType().equals(Item.ITEM_TYPE.INCOME)) {
-                for (Item category : Common._listCategories) {
-                    if (((Category) category).get_categoryType().equals(Item.ITEM_TYPE.INCOME))
+        for (ICatItem parentCategory:Common._listCategoriesGroup){
+            List<ICatItem> categories = new ArrayList<ICatItem>();
+            if(((CategoryGroup)parentCategory).get_categoryType().equals(ICatItem.ITEM_TYPE.INCOME)) {
+                for (ICatItem category : Common._listCategories) {
+                    if (((Category) category).get_categoryType().equals(ICatItem.ITEM_TYPE.INCOME))
                         if (((Category) category).get_parentCategory().equals(((CategoryGroup) parentCategory).get_catID()))
                             categories.add(category);
                 }
@@ -557,12 +570,12 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
 //                    @Override
 //                    public View getView(final int position, View convertView, ViewGroup parent) {
 //                        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-//                        View view = ((Item)getItem(position)).getView(inflater, convertView);
+//                        View view = ((ICatItem)getItem(position)).getView(inflater, convertView);
 //                        view.setOnClickListener(new View.OnClickListener() {
 //                            @Override
 //                            public void onClick(View v) {
 ////                                showUpdateCategoryPopupWindow(position);
-//                                Item item = ((Item)getItem(position));
+//                                ICatItem item = ((ICatItem)getItem(position));
 //                                if(item.getClass().equals(Category.class))
 //                                    showUpdateCategoryPopupWindow((Category) item);
 //                                else if (item.getClass().equals(CategoryGroup.class))
@@ -570,12 +583,12 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
 ////                                    Toast.makeText(getContext(),""+((Category)item).get_categoryName(), Toast.LENGTH_LONG).show();
 //                            }
 //                        });
-//                        return view;//((Item)getItem(position)).getView(inflater, convertView);
+//                        return view;//((ICatItem)getItem(position)).getView(inflater, convertView);
 //                    }
 //
 //                    @Override
 //                    public int getItemViewType(int position) {
-//                        Item item = (Item)getItem(position);
+//                        ICatItem item = (ICatItem)getItem(position);
 //
 //                        return item.getViewType();
 //                    }
@@ -598,7 +611,7 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
     }
 
     List<CategoryGroup> _categoryGroupsInSpinner = new ArrayList<CategoryGroup>();
-    void populateSpinner(final View view, Item.ITEM_TYPE item_type, String selectionValue){
+    void populateSpinner(final View view, ICatItem.ITEM_TYPE item_type, String selectionValue){
         final Spinner spinner = view.findViewById(R.id.spinnerParentCategory);
 
         // Spinner click listener
@@ -608,7 +621,7 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
         // Creating adapter for spinner
         List<String> spinnerAdapter = new ArrayList<String>();
         _categoryGroupsInSpinner.clear();
-        for(Item categoryGroup:Common._listCategoriesGroup) {
+        for(ICatItem categoryGroup:Common._listCategoriesGroup) {
             if (((CategoryGroup)categoryGroup).get_categoryType().equals(item_type)) {
                 spinnerAdapter.add(((CategoryGroup) categoryGroup).get_categoryName());
                 _categoryGroupsInSpinner.add(((CategoryGroup)categoryGroup));
@@ -665,7 +678,7 @@ public class FragmentCategories extends Fragment implements AdapterView.OnItemSe
 
     String getCatGroupNameForID(String catGroupID){
 
-        for (Item categoryGroup:Common._listCategoriesGroup){
+        for (ICatItem categoryGroup:Common._listCategoriesGroup){
             if(((CategoryGroup)categoryGroup).get_catID().equals(catGroupID))
                 return ((CategoryGroup)categoryGroup).get_categoryName();
         }

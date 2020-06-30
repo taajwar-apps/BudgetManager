@@ -67,7 +67,7 @@ public class FragmentTransaction extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_transaction, null);
+        final View rootView = inflater.inflate(R.layout.fragment_transaction, null);
         ((TextView)rootView.findViewById(R.id.custom_header)).setText("Transactions");
         listView = rootView.findViewById(R.id.expListView);
 //        _toolbar = ((AppCompatActivity)getActivity()).getSupportActionBar();
@@ -84,9 +84,21 @@ public class FragmentTransaction extends Fragment {
         _btnAddTransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                showAddTransactionPopupWindow();
-                setFragment(_fragmentAddTransactions);
-                Common.hideNavigationView();
+//                setFragment(_fragmentAddTransactions);
+//                Common.hideNavigationView();
+
+                Calculator calculator = new Calculator(getContext());
+                calculator.show(new Callback() {
+                    @Override
+                    public void apply(String msg) {
+
+                    }
+
+                    @Override
+                    public void result(float result) {
+                        Toast.makeText(getContext(),"Final Result ; "+result, Toast.LENGTH_LONG).show();
+                    }
+                });
             }
         });
 

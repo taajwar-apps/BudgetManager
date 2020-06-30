@@ -171,17 +171,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"
-                android:src="@drawable/ic_categories" />
+                android:tint="@color/colorBlack"
+                android:src="@drawable/ic_arrow_back" />
 
             <Spinner
-                android:id="@+id/spinnerTransactionCategory"
+                android:id="@+id/spinnerTransferFromAccount"
 
                 style="@style/Base.Widget.MaterialComponents.TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="45dp"
-                android:spinnerMode="dialog">
-            </Spinner>
+                android:spinnerMode="dialog"></Spinner>
         </RelativeLayout>
 
 
@@ -193,16 +193,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="11dp"
-                android:src="@drawable/ic_account" />
+                android:tint="@color/colorBlack"
+                android:rotation="180"
+                android:src="@drawable/ic_arrow_back" />
 
             <Spinner
-                android:id="@+id/spinnerTransactionAccount"
+                android:id="@+id/spinnerTransferToAccount"
 
                 style="@style/Base.Widget.MaterialComponents.TextInputEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="45dp"
                 android:autofillHints="gfghhgf"
+                android:paddingTop="45dp"
                 android:spinnerMode="dialog">
 
             </Spinner>

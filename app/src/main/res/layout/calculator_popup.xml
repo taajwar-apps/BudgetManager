@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    >
+
+    <android.support.v7.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="10dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:padding="10dp"
+            android:paddingLeft="20dp"
+            android:textSize="20dp"
+            android:hint="0"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:padding="10dp"
+            android:paddingRight="20dp"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:background="@color/colorWhite"
+            android:hint="0"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <!--Counting Buttons Region-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <!--<TableLayout-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--&gt;-->
+
+                    <!--&lt;!&ndash;<TableRow>&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/btn_1"&ndash;&gt;-->
+                            <!--&lt;!&ndash;style="@style/Calculator.Buttons"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="1"&ndash;&gt;-->
+
+                            <!--&lt;!&ndash;/>&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/btn_2"&ndash;&gt;-->
+                            <!--&lt;!&ndash;style="@style/Calculator.Buttons"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="2" />&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/btn_3"&ndash;&gt;-->
+                            <!--&lt;!&ndash;style="@style/Calculator.Buttons"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="3" />&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<TableRow>&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/btn_4"&ndash;&gt;-->
+                            <!--&lt;!&ndash;style="@style/Calculator.Buttons"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="4" />&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/btn_5"&ndash;&gt;-->
+                            <!--&lt;!&ndash;style="@style/Calculator.Buttons"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="5" />&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/btn_6"&ndash;&gt;-->
+                            <!--&lt;!&ndash;style="@style/Calculator.Buttons"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="6" />&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<TableRow>&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/btn_7"&ndash;&gt;-->
+                            <!--&lt;!&ndash;style="@style/Calculator.Buttons"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="7" />&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/btn_8"&ndash;&gt;-->
+                            <!--&lt;!&ndash;style="@style/Calculator.Buttons"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="8" />&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/btn_9"&ndash;&gt;-->
+                            <!--&lt;!&ndash;style="@style/Calculator.Buttons"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="9" />&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;<TableRow>&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/btn_dot"&ndash;&gt;-->
+                            <!--&lt;!&ndash;style="@style/Calculator.Buttons"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="." />&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/btn_0"&ndash;&gt;-->
+                            <!--&lt;!&ndash;style="@style/Calculator.Buttons"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="0" />&ndash;&gt;-->
+
+                        <!--&lt;!&ndash;<Button&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:id="@+id/btn_OK"&ndash;&gt;-->
+                            <!--&lt;!&ndash;style="@style/Calculator.Buttons"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:background="@color/colorGreen"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="OK" />&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;</TableRow>&ndash;&gt;-->
+
+                <!--</TableLayout>-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    >
+
+                    <Button
+                        android:id="@+id/btn_1"
+                        style="@style/Calculator.Buttons"
+                        android:text="1"
+
+                        />
+
+                    <Button
+                        android:id="@+id/btn_2"
+                        style="@style/Calculator.Buttons"
+                        android:text="2" />
+
+                    <Button
+                        android:id="@+id/btn_3"
+                        style="@style/Calculator.Buttons"
+                        android:layout_width="wrap_content"
+                        android:text="3" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    >
+
+                    <Button
+                        android:id="@+id/btn_4"
+                        style="@style/Calculator.Buttons"
+                        android:text="4" />
+
+                    <Button
+                        android:id="@+id/btn_5"
+                        style="@style/Calculator.Buttons"
+                        android:text="5" />
+
+                    <Button
+                        android:id="@+id/btn_6"
+                        style="@style/Calculator.Buttons"
+                        android:text="6" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    >
+
+                    <Button
+                        android:id="@+id/btn_7"
+                        style="@style/Calculator.Buttons"
+                        android:text="7" />
+
+                    <Button
+                        android:id="@+id/btn_8"
+                        style="@style/Calculator.Buttons"
+                        android:text="8" />
+
+                    <Button
+                        android:id="@+id/btn_9"
+                        style="@style/Calculator.Buttons"
+                        android:text="9" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    >
+
+                    <Button
+                        android:id="@+id/btn_dot"
+                        style="@style/Calculator.Buttons"
+                        android:text="." />
+
+                    <Button
+                        android:id="@+id/btn_0"
+                        style="@style/Calculator.Buttons"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/btn_OK"
+                        style="@style/Calculator.Buttons"
+                        android:background="@color/colorGreen"
+                        android:text="OK" />
+
+                </LinearLayout>
+            </LinearLayout>
+            <!--Counting Buttons Region End-->
+            <!--Action Buttons Region-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                >
+
+                <Button
+                    android:id="@+id/btn_clear"
+                    style="@style/Calculator.ActionButtons"
+                    android:text="C"
+                    android:textColor="@color/colorRed"
+                   />
+
+                <Button
+                    android:id="@+id/btn_plus"
+                    style="@style/Calculator.ActionButtons"
+                    android:text="+"
+                   />
+
+                <Button
+                    android:id="@+id/btn_minus"
+                    style="@style/Calculator.ActionButtons"
+                    android:text="-" />
+
+                <Button
+                    android:id="@+id/btn_multiply"
+                    style="@style/Calculator.ActionButtons"
+                    android:text="x" />
+
+                <Button
+                    android:id="@+id/btn_division"
+                    style="@style/Calculator.ActionButtons"
+                    android:text="÷" />
+
+            </LinearLayout>
+            <!--Action Buttons Region End-->
+        </LinearLayout>
+    </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

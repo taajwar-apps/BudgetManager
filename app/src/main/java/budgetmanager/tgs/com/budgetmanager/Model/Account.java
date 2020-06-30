@@ -12,10 +12,10 @@ import com.google.firebase.database.DatabaseReference;
 import budgetmanager.tgs.com.budgetmanager.Common;
 import budgetmanager.tgs.com.budgetmanager.Callback;
 import budgetmanager.tgs.com.budgetmanager.FragmentCategories;
-import budgetmanager.tgs.com.budgetmanager.Item;
+import budgetmanager.tgs.com.budgetmanager.ICatItem;
 import budgetmanager.tgs.com.budgetmanager.R;
 
-public class Account implements Item {
+public class Account implements ICatItem {
 
     private String _accountTitle = "";
 //    private String _parentCategory = "";

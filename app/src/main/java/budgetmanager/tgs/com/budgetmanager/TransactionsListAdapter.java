@@ -84,7 +84,7 @@ public class TransactionsListAdapter extends BaseExpandableListAdapter {
 
         if(convertView == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.list_group, null);
+            convertView = inflater.inflate(R.layout.list_group_transaction, null);
         }
 
         TextView lblGroupDate = convertView.findViewById(R.id.lblListGroupDate);

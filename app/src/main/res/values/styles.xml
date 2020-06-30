@@ -8,4 +8,45 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BottomNavigationView.InActive" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="BottomNavigationView.Active" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">17sp</item>
+    </style>
+
+    <style name="Calculator.ActionButtons" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/colorCalculatorActionButtons</item>
+    </style>
+
+    <style name="Calculator.Buttons" parent="@style/TextAppearance.AppCompat.Caption">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">0.0dp</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">20dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@color/colorCalculatorButtons</item>
+    </style>
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

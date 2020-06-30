@@ -62,7 +62,7 @@ public class FragmentAddTransactionExpense extends Fragment {
 //        _listViewExpenseCategory = (ListView) view.findViewById(R.id.list_view_expense_categories);
 //        _listViewAccounts = view.findViewById(R.id.list_view_accounts);
 //        _listExpenseCategories = new ArrayList<Category>();
-//        _listAccounts = new ArrayList<Item>();
+//        _listAccounts = new ArrayList<ICatItem>();
         _btnAddExpense = view.findViewById(R.id.btnAddExpense);
         _btnAddExpenseAndClose = view.findViewById(R.id.btnAddExpenseAndClose);
 
@@ -96,7 +96,7 @@ public class FragmentAddTransactionExpense extends Fragment {
 //        _listViewAccounts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-////                Toast.makeText(getContext(), "Touched Item : "+position, Toast.LENGTH_SHORT).show();
+////                Toast.makeText(getContext(), "Touched ICatItem : "+position, Toast.LENGTH_SHORT).show();
 //                showUpdateCategoryPopupWindow(position);
 //            }
 //        });
@@ -210,6 +210,10 @@ public class FragmentAddTransactionExpense extends Fragment {
                 Toast.makeText(getContext(),msg,Toast.LENGTH_SHORT).show();
                 popupWindow.dismiss();
 //                refreshDataAdapter();
+            }
+            @Override
+            public void result(float result) {
+
             }
         });
         popupWindow.dismiss();

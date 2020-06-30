@@ -140,11 +140,13 @@
         <android.support.design.widget.BottomNavigationView
             android:id="@+id/navigation_view_transactions"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="56dp"
             android:layout_gravity="bottom"
-            android:background="@color/design_default_color_primary_dark"
+            android:background="@color/colorRed"
             app:itemTextColor="@color/colorWhite"
             android:paddingBottom="15dp"
+            app:itemTextAppearanceActive="@style/BottomNavigationView.Active"
+            app:itemTextAppearanceInactive="@style/BottomNavigationView.InActive"
             app:menu="@menu/transaction_type_navigation" />
 
     </FrameLayout>

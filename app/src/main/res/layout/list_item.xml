@@ -5,42 +5,73 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/lblListItemTransactionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center_vertical"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorBlack"
+                android:text="Shirt"
+                />
+
+            <TextView
+                android:id="@+id/lblListItemTransactionCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:gravity="center_vertical"
+                android:textSize="9dp"
+                android:text="Clothing"
+                />
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/lblListItemTransactionAmount"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorRed"
+                android:text="-$50.00"
+                />
 
-    <TextView
-        android:id="@+id/lblListItemTransactionCategory"
-        android:paddingLeft="50dp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center_vertical"
-        android:textSize="15dp"
-        android:background="@color/colorPrimary"/>
-
-        <TextView
-            android:id="@+id/lblListItemTransactionAccount"
-            android:paddingLeft="50dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:gravity="center_vertical"
-            android:textSize="15dp"
-            android:background="@color/colorPrimary"/>
-
-        <TextView
-            android:id="@+id/lblListItemTransactionAmount"
-            android:paddingLeft="50dp"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:gravity="center_vertical"
-            android:textSize="15dp"
-            android:background="@color/colorPrimary"/>
+            <TextView
+                android:id="@+id/lblListItemTransactionAccount"
+                android:paddingRight="15dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:textSize="9dp"
+                android:text="Wallet [-$50.00]"/>
+        </LinearLayout>
 
     </LinearLayout>
 

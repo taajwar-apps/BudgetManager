@@ -45,7 +45,7 @@ public class FragmentAddTransactionIncome extends Fragment {
     BaseAdapter _listAdapter;
 
     //    List<Category> _listExpenseCategories;
-    List<Item> _listAccounts;
+    List<ICatItem> _listAccounts;
     Account _selectedAccount;
 
     public FragmentAddTransactionIncome() {
@@ -62,7 +62,7 @@ public class FragmentAddTransactionIncome extends Fragment {
 //        _listViewExpenseCategory = (ListView) view.findViewById(R.id.list_view_expense_categories);
         _listViewAccounts = view.findViewById(R.id.list_view_accounts);
 //        _listExpenseCategories = new ArrayList<Category>();
-        _listAccounts = new ArrayList<Item>();
+        _listAccounts = new ArrayList<ICatItem>();
         _btnAddAccount = view.findViewById(R.id.btnAddAccount);
 //        _btnAddAccount.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -77,13 +77,14 @@ public class FragmentAddTransactionIncome extends Fragment {
             public void onClick(View v) {
                 Toast.makeText(getContext(), "HAHAHAHAH", Toast.LENGTH_SHORT).show();
                 getFragmentManager().popBackStack();
+                Common.showNavigationView();
             }
         });
 
 //        _listViewAccounts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-////                Toast.makeText(getContext(), "Touched Item : "+position, Toast.LENGTH_SHORT).show();
+////                Toast.makeText(getContext(), "Touched ICatItem : "+position, Toast.LENGTH_SHORT).show();
 //                showUpdateCategoryPopupWindow(position);
 //            }
 //        });
@@ -188,6 +189,10 @@ public class FragmentAddTransactionIncome extends Fragment {
                         popupWindow.dismiss();
                         refreshDataAdapter();
                     }
+                    @Override
+                    public void result(float result) {
+
+                    }
                 });
             }
         });
@@ -223,6 +228,10 @@ public class FragmentAddTransactionIncome extends Fragment {
                 popupWindow.dismiss();
                 refreshDataAdapter();
             }
+            @Override
+            public void result(float result) {
+
+            }
         });
         popupWindow.dismiss();
     }
@@ -254,6 +263,10 @@ public class FragmentAddTransactionIncome extends Fragment {
                 Toast.makeText(getContext(),msg,Toast.LENGTH_SHORT).show();
                 popupWindow.dismiss();
                 refreshDataAdapter();
+            }
+            @Override
+            public void result(float result) {
+
             }
         });
 //        popupWindow.dismiss();
@@ -300,8 +313,8 @@ public class FragmentAddTransactionIncome extends Fragment {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 //                _listAccounts.clear();
-//                List<Item> listAccounts = new ArrayList<>();
-////                List<Item> listIncomeCategories = new ArrayList<>();
+//                List<ICatItem> listAccounts = new ArrayList<>();
+////                List<ICatItem> listIncomeCategories = new ArrayList<>();
 ////                _listCategories.add(new Header("Expense Categories", Header.HEADER_TYPE.EXPENSE));
 //                _listAccounts.add(new Header("Accounts"));
 //                for(DataSnapshot accountSnapshot : dataSnapshot.getChildren()){
@@ -364,11 +377,11 @@ public class FragmentAddTransactionIncome extends Fragment {
 //        }
 //        _listAllCategories.clear();
 //        _listAllCategories.add(new Header("Expense Categories"));
-//        for (Item parentCategory:Common._listCategoriesGroup){
-//            List<Item> categories = new ArrayList<Item>();
-//            if(((CategoryGroup)parentCategory).get_categoryType().equals(Item.ITEM_TYPE.EXPENSE)) {
-//                for (Item category : Common._listCategories) {
-//                    if (((Category) category).get_categoryType().equals(Item.ITEM_TYPE.EXPENSE))
+//        for (ICatItem parentCategory:Common._listCategoriesGroup){
+//            List<ICatItem> categories = new ArrayList<ICatItem>();
+//            if(((CategoryGroup)parentCategory).get_categoryType().equals(ICatItem.ITEM_TYPE.EXPENSE)) {
+//                for (ICatItem category : Common._listCategories) {
+//                    if (((Category) category).get_categoryType().equals(ICatItem.ITEM_TYPE.EXPENSE))
 //                        if (((Category) category).get_parentCategory().equals(((CategoryGroup) parentCategory).get_catID()))
 //                            categories.add(category);
 //                }
@@ -379,11 +392,11 @@ public class FragmentAddTransactionIncome extends Fragment {
 //            }
 //        }
 //        _listAllCategories.add(new Header("Income Categories"));
-//        for (Item parentCategory:Common._listCategoriesGroup){
-//            List<Item> categories = new ArrayList<Item>();
-//            if(((CategoryGroup)parentCategory).get_categoryType().equals(Item.ITEM_TYPE.INCOME)) {
-//                for (Item category : Common._listCategories) {
-//                    if (((Category) category).get_categoryType().equals(Item.ITEM_TYPE.INCOME))
+//        for (ICatItem parentCategory:Common._listCategoriesGroup){
+//            List<ICatItem> categories = new ArrayList<ICatItem>();
+//            if(((CategoryGroup)parentCategory).get_categoryType().equals(ICatItem.ITEM_TYPE.INCOME)) {
+//                for (ICatItem category : Common._listCategories) {
+//                    if (((Category) category).get_categoryType().equals(ICatItem.ITEM_TYPE.INCOME))
 //                        if (((Category) category).get_parentCategory().equals(((CategoryGroup) parentCategory).get_catID()))
 //                            categories.add(category);
 //                }

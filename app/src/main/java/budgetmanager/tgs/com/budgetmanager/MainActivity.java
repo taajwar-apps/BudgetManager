@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentTransaction _fragmentTransactions;
     FragmentAccounts _fragmentAccounts;
     FragmentCategories _fragmentCategories;
-    FragmentBudget _fragmentBudget;
+    FragmentBudgetSummary _fragmentBudgetSummary;
     ProgressDialog progressDialog;
 //    public static BottomNavigationView navigation;
 
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_budget:
 //                    mTextMessage.setText(R.string.title_budget);
-                    setFragment(_fragmentBudget);
+                    setFragment(_fragmentBudgetSummary);
                     return true;
             }
             return false;
@@ -60,8 +60,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+        setContentView(R.layout.activity_main2);
+//        getSupportActionBar().hide();
 
         loadCategoriesGroup();
         loadCategories();
@@ -69,13 +69,13 @@ public class MainActivity extends AppCompatActivity {
         showLoader();
 
 //        mTextMessage = (TextView) findViewById(R.id.message);
-        Common.navigation = findViewById(R.id.navigation);
+        Common.navigation = findViewById(R.id.navigationBottom);
         Common.navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         _fragmentTransactions = new FragmentTransaction();
         _fragmentAccounts = new FragmentAccounts();
         _fragmentCategories = new FragmentCategories();
-        _fragmentBudget = new FragmentBudget();
+        _fragmentBudgetSummary = new FragmentBudgetSummary();
 
         setFragment(_fragmentTransactions);
     }
